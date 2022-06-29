@@ -1,0 +1,26 @@
+{{extend 'layout.html'}}
+<br>
+
+<h1>Welcome to book store</h1>
+
+<br>
+<br>
+Grab your favorite books here...
+<br>
+<br>
+<br>
+<br>
+
+{{ for x in rows : }}
+ <div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      
+        <div class="caption">
+          <p>{{=x.book_name}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+ </div>
+{{ pass }}

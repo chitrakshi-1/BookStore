@@ -1,0 +1,32 @@
+{{extend 'layout.html'}}
+<br>
+
+
+<br>
+<br>
+
+
+
+
+<div class="container-fluid">
+ <div class="jumbotron">
+    <h1 class="text-center">Welcome to book store</h1>
+    <p class="text-center">We have variety of books. Please login to explore all these ...</p>
+  </div>
+
+{{for y in demo:}}
+
+
+
+ 
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <figure>
+        <img src='{{=y.book_image}}' class="img-thumbnail grayscale">
+        <figcaption>{{=y.book_genere}}</figcaption>
+      </figure>
+    </div>
+ </div>
+    {{ pass }}
+</div>

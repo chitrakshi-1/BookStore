@@ -1,0 +1,322 @@
+timestamp: 2022-06-09T11:27:38.415001
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512)
+);
+success!
+timestamp: 2022-06-09T11:27:38.425245
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2022-06-09T11:27:38.435215
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2022-06-09T11:27:38.450698
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2022-06-09T11:27:38.471189
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2022-06-09T11:27:38.495263
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2022-06-09T11:38:41.979887
+CREATE TABLE "books"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "book_id" CHAR(512),
+    "book_name" CHAR(512),
+    "book_genere" CHAR(512),
+    "book_author" CHAR(512),
+    "book_price" CHAR(512)
+);
+success!
+timestamp: 2022-06-09T12:38:38.828905
+CREATE TABLE "demo"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "book_id" CHAR(512),
+    "book_name" CHAR(512),
+    "book_genere" CHAR(512),
+    "book_author" CHAR(512),
+    "book_price" CHAR(512)
+);
+success!
+timestamp: 2022-06-09T16:33:46.364738
+ALTER TABLE "demo" ADD "book_image" CHAR(512);
+success!
+timestamp: 2022-06-09T16:36:43.524820
+ALTER TABLE "books" ADD "book_image" CHAR(512);
+success!
+timestamp: 2022-06-13T15:51:55.536096
+CREATE TABLE "cart"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "book_id" CHAR(512),
+    "book_name" CHAR(512),
+    "book_qty" CHAR(512)
+);
+success!
+timestamp: 2022-06-13T15:53:57.866394
+CREATE TABLE "cartitems"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "book_id" CHAR(512),
+    "book_name" CHAR(512),
+    "book_qty" CHAR(512)
+);
+success!
+timestamp: 2022-06-13T16:09:06.368153
+ALTER TABLE "cartitems" ADD "book_genere" CHAR(512);
+timestamp: 2022-06-13T16:09:06.373395
+ALTER TABLE "cartitems" ADD "book_author" CHAR(512);
+timestamp: 2022-06-13T16:09:06.377951
+ALTER TABLE "cartitems" ADD "book_price" CHAR(512);
+timestamp: 2022-06-13T16:09:06.381237
+ALTER TABLE "cartitems" ADD "book_image" CHAR(512);
+success!
+timestamp: 2022-06-13T18:24:47.356905
+ALTER TABLE "cartitems" ADD "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+success!
+success!
+timestamp: 2022-06-21T12:28:21.498633
+CREATE TABLE "address"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "address_id" CHAR(512),
+    "address_house" CHAR(100),
+    "address_area" CHAR(100),
+    "address_city" CHAR(100),
+    "address_state" CHAR(100),
+    "address_country" CHAR(100),
+    "address_pin" CHAR(512),
+    "address_phone" CHAR(512),
+    "address_email" CHAR(512),
+    "address_type" CHAR(512)
+);
+success!
+timestamp: 2022-06-21T12:47:36.754691
+ALTER TABLE "address" ADD "address_name" CHAR(100);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

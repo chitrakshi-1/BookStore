@@ -1,0 +1,83 @@
+{{extend 'layout.html'}}
+
+
+
+
+
+<section class="h-100" style="background-color: #eee;">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-normal mb-0 text-black">Your Cart items are-</h3>
+          <div>
+            <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
+                  class="fas fa-angle-down mt-1"></i></a></p>
+          </div>
+        </div>
+
+          
+{{ for x in cartrows : }} 
+         <div class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  src='{{=x.book_image}}'
+                  class="img-fluid rounded-3" alt="{{=x.book_name}}">
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2">{{=x.book_name}}</p>
+               
+                <p class="lead fw-normal mb-2">Author: {{=x.book_author}}</p>
+                <p class="lead fw-normal mb-2">Price: Rs. {{=x.book_price}}</p>
+             
+                  
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                <div class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()"><img src='https://th.bing.com/th/id/OIP.lFpdQVM-0Cp3pNJaerpEBQAAAA?w=185&h=185&c=7&r=0&o=5&pid=1.7' height=7 width=7>
+                 
+                </div>
+                    
+                <input id="{{=x.book_id}}" min="0" name="quantity" value="1" type="number"
+                  class="form-control form-control-sm" />
+
+                <div class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+               
+                    <img src='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAsJCQcJCQcJCQkJCwkJCQkJCQsJCwsMCwsLDA0QDBEODQ4MEhkSJRodJR0ZHxwpKRYlNzU2GioyPi0pMBk7IRP/2wBDAQcICAsJCxULCxUsHRkdLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCz/wAARCAC8ALwDASIAAhEBAxEB/8QAGwABAQADAQEBAAAAAAAAAAAAAAgFBgcEAQL/xABBEAEAAAQCBQoCBwQLAAAAAAAAAQMEBQIGBxEWNrQSE1VWcnOTldLhFCEVMTJBYXF0FyMlUTRDU2R1gZGUs8TU/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOtgAAAAAAAAADF3+7fQdnuV2+H+I+Cl4JnM85zXOcqZhl6uXycWr69f2Yuc/tlw9XMXmcP/ADA60Od5c0lwzDerfaIWWNN8X8T+/jXc9yOZkTJ/2OYw69fJ1fa+90QAAAAAAAAAAAAAAAAAAAAGr5/3PzJ+nkcRKTgo/SBufmTuJHEyk4RBt2jffOwflceBnqJTvo23zsP5XHgZ6iAAAAAAAAAAAAAAAAAAAAAavpA3OzH3FPxMpOCjtIG52Y+5p+JlJxBt+jbfOw9m48FPUQnjRtvnYuzceCnqHAAAAAAAAAAAAAAAAAAAABq2kHc7Mfc03FSU4qO0g7nZj7ml4qSnEG4aNd87H2LjwU5Q6eNGu+Vk7Fx4OcocAAAAAAAAAAAAAAAAAAAAGq6Qtzcx91S8VJTko3SFubmPuqTi5Kcgbjo13ysvd3Hg5yhk86Nd8rL3dx4OaoYAAAAAAAAAAB4626We28z9I3Cho+e5fM/GVMqRznI1crkc7ihr1a4a/wA/xexyXTL9nKXau/8A1QdC2oyf1hsfmNJ6zajJ/WGx+Y0nrTAAp/ajJ/WGx+Y0nrNqMn9YbH5jSetMACn9qMn9YbH5jSes2oyf1hsfmNJ60wAKf2oyf1hsfmNJ6zajJ/WGx+Y0nrTAA71nq/ZbrMp36mpLzaqiomy6WEuTT1tNNm49VVKxR5ODBjjijqhCMfq+5wUAbXo9qqKizXaqmsqaemp5cuu5c6qm4JMrDHFTTMEIRxzIwh84xhCHzd02oyf1hsfmNJ60wAKf2oyf1hsfmNJ6zajJ/WGx+Y0nrTAAp/ajJ/WGx+Y0nrNqMn9YbH5jSetMACn9qMn9YbH5jSes2oyf1hsfmNJ60wAKf2oyf1hsfmNJ6zajJ/WGx+Y0nrTAe4K0lTJM+VKnSceCZJnS8E2VMl4oYsGOXjhDFhxYcUPlGEYfOD9sXl3d/LX+DWvhpbKAOaaU7Ne7xDLULZQVNX8PG5xn/D4OVzfOfD8nlfP79UdX5OlgJo2Lzv0DcfC9zYvO/QNx8L3UuAmjYvO/QNx8L3Ni879A3HwvdS4CaNi879A3Hwvc2Lzv0DcfC91LgJo2Lzv0DcfC9zYvO/QNx8L3UuAmGsyvmq300+srbRW09LIhhjNnTZfJwYIYsUMENcdf3xjCH+bDKL0i7mZi7FDxshOgPTRUNfcqmXSUNPNqKmZDHHBKkw5WPFDBhjjxRhD8IQjFl9i879A3HwvdktGe+Fp7m4cLMUICadi879A3Hwvc2Lzv0DcfC91LgJo2Lzv0DcfC9zYvO/QNx8L3UuAmjYvO/QNx8L3Ni879A3HwvdS4CaNi879A3Hwvc2Lzv8/4Dcfqj/U+6l3wGPscmdT2WwSJ+DFLnSLXb5M6Xj+WLBMwU+DDiw4ofzhGGqLIgAAAAAAAAAADU9Iu5mYuzQ8bIToovSLuZmLs0PGyE6A3PRnvhau5uHCzFCJ70Z74WruLhw0xQgAAAAAAAAAAAAAAAAAAAANT0jbmZi7NBxshOii9I25mYuzQcbIToDc9GW99r7i4cNjUInzRlvfa+4uHDY1BgAAAAAAAAAAAAAAAAAAAA1LSNuZmLs0HHSE6qK0jbmZi7NBx0hOoN00Zb32z9PcOHxqDT5oy3vtv6e4cPiUGAAAAAAAAAAAAAAAAAAAADUtI25eYvyt/HSE6qK0jxhsZmH8YW+H1/wB+kJ1/0BuujHe+3fprh/wYlBJ90Y6trrf84f0a4fy/sMSgQfQAAAAAAAAAAAAAAAAAAAfibKkzsGKVOly5kvFq5WCbgw48EdUdcNeHFCMHm+i7P0fQ/wC1kel7AHmlUFukTITZFHSypkIRhDHKkSsGOEI/XCGLDhhF6QAAAAAAAAAAB//Z' height=7 width=7>
+                 
+                </div>
+                   <div class="btn btn-link px-2"
+                  onclick = 'window.location="{{=URL('default','deleteitem',args=[x.id])}}";'><img src='https://th.bing.com/th/id/R.a99a998f1d583f6d5c091100f422773c?rik=nynNBBeF3GQupg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_90356.png&ehk=dltYew8BHEQQ2jkENAyYNHObS6SKpCSKxupmjKfBAPI%3d&risl=&pid=ImgRaw&r=0' height=15 width=12>
+                 
+                </div>
+                
+              </div>
+          
+              
+            </div>
+          </div>
+        </div>
+        
+{{ pass }}      
+
+       
+
+        <div class="card">
+          <div class="card-body">
+            <button type="submit" class="btn btn-warning btn-block btn-lg"  onclick = 'window.location="{{=URL('default','payment')}}";'>Make Payment</button>
+          </div>
+        </div>
+          <div class="card">
+          <div class="card-body">
+            <button type="submit" class="btn btn-warning btn-block btn-lg" onclick = 'window.location="{{=URL('default','view')}}";' >Explore more books</button>
+          </div>
+        </div>
+</form>
+      </div>
+    </div>
+  </div>
+</section>
